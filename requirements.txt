@@ -1,0 +1,6 @@
+envparse
+#google-cloud-translate
+goslate
+hug
+mstranslator
+yandex.translate
