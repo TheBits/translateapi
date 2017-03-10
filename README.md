@@ -21,7 +21,7 @@ make venv
 make run
 ```
 
-# Проврека
+# Проверка
 
 Кириллические символы надо закодировать. Браузер делает это автоматически. 
 В curl надо закодировать (--data-urlencode) и присоединить к URL (-G опция).
@@ -56,5 +56,5 @@ https://cloud.google.com/translate/pricing?csw=1
 
 
 ## Microsoft
-Инструкция по ссылке. Ключ начниает рабоатть не сразу.
+Инструкция по ссылке. Ключ начинает работать не сразу.
 https://github.com/wronglink/mstranslator#usage
