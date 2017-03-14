@@ -1,8 +1,8 @@
 Простой  REST сервис перевода из нескольких API.
 
-Выбор сервиса перевода указывается в path у URL, например `/translate/{service}`.
+Выбор сервиса перевода происходит автоматически. Пример `/translate/?lang=<lang>&text=<text>`.
 
-Сейчас доступны `/transalte/yandex` и `/translate/microsoft`.
+Сейчас доступны Yandex, Microsoft и Transltr.
 
 # Запуск
 
@@ -26,33 +26,28 @@ make run
 Кириллические символы надо закодировать. Браузер делает это автоматически. 
 В curl надо закодировать (--data-urlencode) и присоединить к URL (-G опция).
 
-```curl -vs 'localhost:8000/translate/yandex' -G --data-urlencode 'text=привет мир'```
+```curl -vs 'localhost:8000/translate/?lang=bg' -G --data-urlencode 'text=Съешь ещё этих мягких французских булок, да выпей же чаю.'```
 
-```curl -vs 'localhost:8000/translate/microsoft' -G --data-urlencode 'text=привет мир'```
+Вернёт
+```
+{"translator": "YandexTranslator", "text": "Яжте повече от тези меки френски ролца, да имат същия чай."}
+```
 
- Не работает.
-```curl -vs 'localhost:8000/translate/google' -G --data-urlencode 'text=привет мир'```
+Языки для которых будет выбран Microsoft Translation API.
+{'to', 'fil', 'cy', 'hi', 'th', 'bs-Latn', 'zh-CHT', 'ht', 'fj', 'mg', 'sr-Cyrl', 'vi', 'he', 'sr-Latn', 'otq', 'af', 'ms', 'sm', 'ty', 'mt', 'ar', 'ko', 'tlh', 'yue', 'zh-CHS', 'tlh-Qaak', 'mww', 'ja', 'sw', 'id', 'fa', 'ur', 'yua'}
 
+```curl -vs 'localhost:8000/translate/?lang=bg' -G --data-urlencode 'text=Съешь ещё этих мягких французских булок, да выпей же чаю.'```
+
+Вернёт
+```
+{"translator": "MicrosoftTranslator", "text": "Bwyta mwy o hyn rholiau Ffrangeg meddal, oes Mae un te."}
+```
 
 # Ключи
 
 ## Yandex
 Получение ключа
 https://tech.yandex.ru/keys/get/?service=trnsl
-
-
-## Google
-
-Сгенерировать ключ для service account в json формате:
-
-https://cloud.google.com/storage/docs/authentication#generating-a-private-key
-http://google-cloud-python.readthedocs.io/en/latest/google-cloud-auth.html
-
-Полученный ключ записать в переменную окружения.
-`export GOOGLE_APPLICATION_CREDENTIALS="google-key.json"`
-
-Оплатить $20.
-https://cloud.google.com/translate/pricing?csw=1
 
 
 ## Microsoft

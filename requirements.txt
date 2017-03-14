@@ -1,6 +1,5 @@
 envparse
-#google-cloud-translate
-goslate
 hug
 mstranslator
+requests
 yandex.translate
