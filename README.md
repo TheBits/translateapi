@@ -34,9 +34,11 @@ make run
 ```
 
 Языки для которых будет выбран Microsoft Translation API.
+```
 {'to', 'fil', 'cy', 'hi', 'th', 'bs-Latn', 'zh-CHT', 'ht', 'fj', 'mg', 'sr-Cyrl', 'vi', 'he', 'sr-Latn', 'otq', 'af', 'ms', 'sm', 'ty', 'mt', 'ar', 'ko', 'tlh', 'yue', 'zh-CHS', 'tlh-Qaak', 'mww', 'ja', 'sw', 'id', 'fa', 'ur', 'yua'}
+```
 
-```curl -vs 'localhost:8000/translate/?lang=bg' -G --data-urlencode 'text=Съешь ещё этих мягких французских булок, да выпей же чаю.'```
+```curl -vs 'localhost:8000/translate/?lang=cy' -G --data-urlencode 'text=Съешь ещё этих мягких французских булок, да выпей же чаю.'```
 
 Вернёт
 ```
